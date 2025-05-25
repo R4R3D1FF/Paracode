@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Submission" ALTER COLUMN "runtime" SET DATA TYPE DOUBLE PRECISION;
