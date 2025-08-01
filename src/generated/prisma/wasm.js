@@ -122,6 +122,8 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
 
 exports.Prisma.ProblemScalarFieldEnum = {
   id: 'id',
+  title: 'title',
+  content: 'content',
   driver_code_c: 'driver_code_c',
   driver_code_cpp: 'driver_code_cpp',
   driver_code_python: 'driver_code_python',

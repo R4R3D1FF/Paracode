@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@/generated/prisma/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { coderunTests } from '@/utilities/coderun';
 
 const prisma = new PrismaClient();
 
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse){
+export async function POST(req: NextApiRequest, res: NextApiResponse){
 
     const {problem_id, language, code, testcases} = req.body;
 

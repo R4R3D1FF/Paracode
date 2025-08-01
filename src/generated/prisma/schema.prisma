@@ -16,6 +16,8 @@ datasource db {
 
 model Problem {
   id                 Int     @id @default(autoincrement())
+  title              String  @default("Check if number is palindrome")
+  content            String  @default("Check if number is palindrome")
   driver_code_c      String?
   driver_code_cpp    String?
   driver_code_python String?

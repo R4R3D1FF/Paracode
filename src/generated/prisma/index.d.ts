@@ -1073,6 +1073,8 @@ export namespace Prisma {
 
   export type ProblemMinAggregateOutputType = {
     id: number | null
+    title: string | null
+    content: string | null
     driver_code_c: string | null
     driver_code_cpp: string | null
     driver_code_python: string | null
@@ -1082,6 +1084,8 @@ export namespace Prisma {
 
   export type ProblemMaxAggregateOutputType = {
     id: number | null
+    title: string | null
+    content: string | null
     driver_code_c: string | null
     driver_code_cpp: string | null
     driver_code_python: string | null
@@ -1091,6 +1095,8 @@ export namespace Prisma {
 
   export type ProblemCountAggregateOutputType = {
     id: number
+    title: number
+    content: number
     driver_code_c: number
     driver_code_cpp: number
     driver_code_python: number
@@ -1110,6 +1116,8 @@ export namespace Prisma {
 
   export type ProblemMinAggregateInputType = {
     id?: true
+    title?: true
+    content?: true
     driver_code_c?: true
     driver_code_cpp?: true
     driver_code_python?: true
@@ -1119,6 +1127,8 @@ export namespace Prisma {
 
   export type ProblemMaxAggregateInputType = {
     id?: true
+    title?: true
+    content?: true
     driver_code_c?: true
     driver_code_cpp?: true
     driver_code_python?: true
@@ -1128,6 +1138,8 @@ export namespace Prisma {
 
   export type ProblemCountAggregateInputType = {
     id?: true
+    title?: true
+    content?: true
     driver_code_c?: true
     driver_code_cpp?: true
     driver_code_python?: true
@@ -1224,6 +1236,8 @@ export namespace Prisma {
 
   export type ProblemGroupByOutputType = {
     id: number
+    title: string
+    content: string
     driver_code_c: string | null
     driver_code_cpp: string | null
     driver_code_python: string | null
@@ -1252,6 +1266,8 @@ export namespace Prisma {
 
   export type ProblemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    content?: boolean
     driver_code_c?: boolean
     driver_code_cpp?: boolean
     driver_code_python?: boolean
@@ -1261,6 +1277,8 @@ export namespace Prisma {
 
   export type ProblemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    content?: boolean
     driver_code_c?: boolean
     driver_code_cpp?: boolean
     driver_code_python?: boolean
@@ -1270,6 +1288,8 @@ export namespace Prisma {
 
   export type ProblemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    title?: boolean
+    content?: boolean
     driver_code_c?: boolean
     driver_code_cpp?: boolean
     driver_code_python?: boolean
@@ -1279,6 +1299,8 @@ export namespace Prisma {
 
   export type ProblemSelectScalar = {
     id?: boolean
+    title?: boolean
+    content?: boolean
     driver_code_c?: boolean
     driver_code_cpp?: boolean
     driver_code_python?: boolean
@@ -1286,13 +1308,15 @@ export namespace Prisma {
     testcases?: boolean
   }
 
-  export type ProblemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "driver_code_c" | "driver_code_cpp" | "driver_code_python" | "driver_code_java" | "testcases", ExtArgs["result"]["problem"]>
+  export type ProblemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "driver_code_c" | "driver_code_cpp" | "driver_code_python" | "driver_code_java" | "testcases", ExtArgs["result"]["problem"]>
 
   export type $ProblemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Problem"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      title: string
+      content: string
       driver_code_c: string | null
       driver_code_cpp: string | null
       driver_code_python: string | null
@@ -1722,6 +1746,8 @@ export namespace Prisma {
    */
   interface ProblemFieldRefs {
     readonly id: FieldRef<"Problem", 'Int'>
+    readonly title: FieldRef<"Problem", 'String'>
+    readonly content: FieldRef<"Problem", 'String'>
     readonly driver_code_c: FieldRef<"Problem", 'String'>
     readonly driver_code_cpp: FieldRef<"Problem", 'String'>
     readonly driver_code_python: FieldRef<"Problem", 'String'>
@@ -4157,6 +4183,8 @@ export namespace Prisma {
 
   export const ProblemScalarFieldEnum: {
     id: 'id',
+    title: 'title',
+    content: 'content',
     driver_code_c: 'driver_code_c',
     driver_code_cpp: 'driver_code_cpp',
     driver_code_python: 'driver_code_python',
@@ -4266,6 +4294,8 @@ export namespace Prisma {
     OR?: ProblemWhereInput[]
     NOT?: ProblemWhereInput | ProblemWhereInput[]
     id?: IntFilter<"Problem"> | number
+    title?: StringFilter<"Problem"> | string
+    content?: StringFilter<"Problem"> | string
     driver_code_c?: StringNullableFilter<"Problem"> | string | null
     driver_code_cpp?: StringNullableFilter<"Problem"> | string | null
     driver_code_python?: StringNullableFilter<"Problem"> | string | null
@@ -4275,6 +4305,8 @@ export namespace Prisma {
 
   export type ProblemOrderByWithRelationInput = {
     id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
     driver_code_c?: SortOrderInput | SortOrder
     driver_code_cpp?: SortOrderInput | SortOrder
     driver_code_python?: SortOrderInput | SortOrder
@@ -4287,6 +4319,8 @@ export namespace Prisma {
     AND?: ProblemWhereInput | ProblemWhereInput[]
     OR?: ProblemWhereInput[]
     NOT?: ProblemWhereInput | ProblemWhereInput[]
+    title?: StringFilter<"Problem"> | string
+    content?: StringFilter<"Problem"> | string
     driver_code_c?: StringNullableFilter<"Problem"> | string | null
     driver_code_cpp?: StringNullableFilter<"Problem"> | string | null
     driver_code_python?: StringNullableFilter<"Problem"> | string | null
@@ -4296,6 +4330,8 @@ export namespace Prisma {
 
   export type ProblemOrderByWithAggregationInput = {
     id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
     driver_code_c?: SortOrderInput | SortOrder
     driver_code_cpp?: SortOrderInput | SortOrder
     driver_code_python?: SortOrderInput | SortOrder
@@ -4313,6 +4349,8 @@ export namespace Prisma {
     OR?: ProblemScalarWhereWithAggregatesInput[]
     NOT?: ProblemScalarWhereWithAggregatesInput | ProblemScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Problem"> | number
+    title?: StringWithAggregatesFilter<"Problem"> | string
+    content?: StringWithAggregatesFilter<"Problem"> | string
     driver_code_c?: StringNullableWithAggregatesFilter<"Problem"> | string | null
     driver_code_cpp?: StringNullableWithAggregatesFilter<"Problem"> | string | null
     driver_code_python?: StringNullableWithAggregatesFilter<"Problem"> | string | null
@@ -4419,6 +4457,8 @@ export namespace Prisma {
   }
 
   export type ProblemCreateInput = {
+    title?: string
+    content?: string
     driver_code_c?: string | null
     driver_code_cpp?: string | null
     driver_code_python?: string | null
@@ -4428,6 +4468,8 @@ export namespace Prisma {
 
   export type ProblemUncheckedCreateInput = {
     id?: number
+    title?: string
+    content?: string
     driver_code_c?: string | null
     driver_code_cpp?: string | null
     driver_code_python?: string | null
@@ -4436,6 +4478,8 @@ export namespace Prisma {
   }
 
   export type ProblemUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     driver_code_c?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4445,6 +4489,8 @@ export namespace Prisma {
 
   export type ProblemUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     driver_code_c?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4454,6 +4500,8 @@ export namespace Prisma {
 
   export type ProblemCreateManyInput = {
     id?: number
+    title?: string
+    content?: string
     driver_code_c?: string | null
     driver_code_cpp?: string | null
     driver_code_python?: string | null
@@ -4462,6 +4510,8 @@ export namespace Prisma {
   }
 
   export type ProblemUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     driver_code_c?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4471,6 +4521,8 @@ export namespace Prisma {
 
   export type ProblemUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
     driver_code_c?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4581,21 +4633,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -4611,6 +4648,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -4618,6 +4670,8 @@ export namespace Prisma {
 
   export type ProblemCountOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
     driver_code_c?: SortOrder
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
@@ -4631,6 +4685,8 @@ export namespace Prisma {
 
   export type ProblemMaxOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
     driver_code_c?: SortOrder
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
@@ -4640,6 +4696,8 @@ export namespace Prisma {
 
   export type ProblemMinOrderByAggregateInput = {
     id?: SortOrder
+    title?: SortOrder
+    content?: SortOrder
     driver_code_c?: SortOrder
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
@@ -4667,24 +4725,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -4701,6 +4741,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -4796,12 +4854,12 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
-  }
-
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -4831,20 +4889,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -4857,6 +4901,20 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -4886,6 +4944,23 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel>
+    in?: string[] | ListStringFieldRefInput<$PrismaModel>
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedStringFilter<$PrismaModel>
+    _max?: NestedStringFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -4912,23 +4987,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel>
-    in?: string[] | ListStringFieldRefInput<$PrismaModel>
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel>
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringWithAggregatesFilter<$PrismaModel> | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedStringFilter<$PrismaModel>
-    _max?: NestedStringFilter<$PrismaModel>
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
