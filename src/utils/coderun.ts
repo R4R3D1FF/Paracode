@@ -6,12 +6,11 @@ import { PrismaClient } from '@/generated/prisma';
 import { setDefaultAutoSelectFamily } from "net";
 
 const prisma = new PrismaClient();
+// tell me if you see it below
 
 
-
-export async function coderun(language: string, code: string, timeout: number, requestId: string = "") {
-  if (requestId === "")
-    requestId = uuidv4();
+export async function coderun(language: string, code: string, timeout: number, testcase: string = ""): Promise<{ output: string, duration: number }> {
+  const requestId = uuidv4();
   if (language === "cpp") {
 
     function compileAndRun(directoryPath: string, bashCommand: string, timeout: number): Promise<string> {
@@ -47,7 +46,7 @@ export async function coderun(language: string, code: string, timeout: number, r
     const bashCommand = `\
       mkdir -p /home/codes /home/executables && \
       g++ /home/codes/temp.cpp -o /home/executables/temp.exe && \
-      /home/executables/temp.exe \
+      /home/executables/temp.exe ${testcase} \
     `;
 
     const directoryPath = path.join(process.cwd(), `temp-${requestId}`);
@@ -58,9 +57,16 @@ export async function coderun(language: string, code: string, timeout: number, r
 
     fs.writeFileSync(filePath, code);
 
+    const start = performance.now();
+
     const output = await compileAndRun(directoryPath, bashCommand, timeout);
 
-    return output;
+    const end = performance.now()
+
+    return ({
+      output,
+      duration: end - start,
+    });
 
 
   }
@@ -89,7 +95,7 @@ export async function coderun(language: string, code: string, timeout: number, r
         { encoding: 'utf-8' });
 
       fs.rmSync(directoryPath, { recursive: true, force: true });
-      return output;
+      return { output, duration: 0 };
 
     }
     catch (error) {
@@ -169,41 +175,11 @@ export async function coderun(language: string, code: string, timeout: number, r
 
   else
     throw new Error("Language not supported");
+
+  return { output: "", duration: 0 };
 }
 
-export async function coderunFromId(language: string, code: string, problem_id: number = -1) {
 
-
-  console.log(code);
-
-
-  if (problem_id != -1) {
-
-    const problem = await prisma.problem.findUnique({
-      where: {
-        id: problem_id,
-      },
-    });
-    const testcases = problem?.testcases;
-
-    console.log(testcases);
-
-    try {
-      if (testcases) {
-        return await coderunTests(language, code, testcases);
-      }
-      else
-        throw new Error("Testcases undefined.\n");
-    }
-
-    catch (error: any) {
-      throw error;
-    }
-  }
-
-
-
-}
 
 
 export async function coderunTests(language: string, code: string, testcases: string) {

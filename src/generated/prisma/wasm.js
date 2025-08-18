@@ -128,7 +128,9 @@ exports.Prisma.ProblemScalarFieldEnum = {
   driver_code_cpp: 'driver_code_cpp',
   driver_code_python: 'driver_code_python',
   driver_code_java: 'driver_code_java',
-  testcases: 'testcases'
+  solution_code_cpp: 'solution_code_cpp',
+  testcases: 'testcases',
+  difficulty: 'difficulty'
 };
 
 exports.Prisma.SubmissionScalarFieldEnum = {
@@ -136,7 +138,8 @@ exports.Prisma.SubmissionScalarFieldEnum = {
   user_id: 'user_id',
   problem_id: 'problem_id',
   runtime: 'runtime',
-  passed_cases: 'passed_cases'
+  passed_cases: 'passed_cases',
+  failed_case: 'failed_case'
 };
 
 exports.Prisma.UserScalarFieldEnum = {

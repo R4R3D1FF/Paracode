@@ -1079,7 +1079,9 @@ export namespace Prisma {
     driver_code_cpp: string | null
     driver_code_python: string | null
     driver_code_java: string | null
+    solution_code_cpp: string | null
     testcases: string | null
+    difficulty: string | null
   }
 
   export type ProblemMaxAggregateOutputType = {
@@ -1090,7 +1092,9 @@ export namespace Prisma {
     driver_code_cpp: string | null
     driver_code_python: string | null
     driver_code_java: string | null
+    solution_code_cpp: string | null
     testcases: string | null
+    difficulty: string | null
   }
 
   export type ProblemCountAggregateOutputType = {
@@ -1101,7 +1105,9 @@ export namespace Prisma {
     driver_code_cpp: number
     driver_code_python: number
     driver_code_java: number
+    solution_code_cpp: number
     testcases: number
+    difficulty: number
     _all: number
   }
 
@@ -1122,7 +1128,9 @@ export namespace Prisma {
     driver_code_cpp?: true
     driver_code_python?: true
     driver_code_java?: true
+    solution_code_cpp?: true
     testcases?: true
+    difficulty?: true
   }
 
   export type ProblemMaxAggregateInputType = {
@@ -1133,7 +1141,9 @@ export namespace Prisma {
     driver_code_cpp?: true
     driver_code_python?: true
     driver_code_java?: true
+    solution_code_cpp?: true
     testcases?: true
+    difficulty?: true
   }
 
   export type ProblemCountAggregateInputType = {
@@ -1144,7 +1154,9 @@ export namespace Prisma {
     driver_code_cpp?: true
     driver_code_python?: true
     driver_code_java?: true
+    solution_code_cpp?: true
     testcases?: true
+    difficulty?: true
     _all?: true
   }
 
@@ -1242,7 +1254,9 @@ export namespace Prisma {
     driver_code_cpp: string | null
     driver_code_python: string | null
     driver_code_java: string | null
+    solution_code_cpp: string
     testcases: string
+    difficulty: string
     _count: ProblemCountAggregateOutputType | null
     _avg: ProblemAvgAggregateOutputType | null
     _sum: ProblemSumAggregateOutputType | null
@@ -1272,7 +1286,9 @@ export namespace Prisma {
     driver_code_cpp?: boolean
     driver_code_python?: boolean
     driver_code_java?: boolean
+    solution_code_cpp?: boolean
     testcases?: boolean
+    difficulty?: boolean
   }, ExtArgs["result"]["problem"]>
 
   export type ProblemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1283,7 +1299,9 @@ export namespace Prisma {
     driver_code_cpp?: boolean
     driver_code_python?: boolean
     driver_code_java?: boolean
+    solution_code_cpp?: boolean
     testcases?: boolean
+    difficulty?: boolean
   }, ExtArgs["result"]["problem"]>
 
   export type ProblemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1294,7 +1312,9 @@ export namespace Prisma {
     driver_code_cpp?: boolean
     driver_code_python?: boolean
     driver_code_java?: boolean
+    solution_code_cpp?: boolean
     testcases?: boolean
+    difficulty?: boolean
   }, ExtArgs["result"]["problem"]>
 
   export type ProblemSelectScalar = {
@@ -1305,10 +1325,12 @@ export namespace Prisma {
     driver_code_cpp?: boolean
     driver_code_python?: boolean
     driver_code_java?: boolean
+    solution_code_cpp?: boolean
     testcases?: boolean
+    difficulty?: boolean
   }
 
-  export type ProblemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "driver_code_c" | "driver_code_cpp" | "driver_code_python" | "driver_code_java" | "testcases", ExtArgs["result"]["problem"]>
+  export type ProblemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "driver_code_c" | "driver_code_cpp" | "driver_code_python" | "driver_code_java" | "solution_code_cpp" | "testcases" | "difficulty", ExtArgs["result"]["problem"]>
 
   export type $ProblemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Problem"
@@ -1321,7 +1343,9 @@ export namespace Prisma {
       driver_code_cpp: string | null
       driver_code_python: string | null
       driver_code_java: string | null
+      solution_code_cpp: string
       testcases: string
+      difficulty: string
     }, ExtArgs["result"]["problem"]>
     composites: {}
   }
@@ -1752,7 +1776,9 @@ export namespace Prisma {
     readonly driver_code_cpp: FieldRef<"Problem", 'String'>
     readonly driver_code_python: FieldRef<"Problem", 'String'>
     readonly driver_code_java: FieldRef<"Problem", 'String'>
+    readonly solution_code_cpp: FieldRef<"Problem", 'String'>
     readonly testcases: FieldRef<"Problem", 'String'>
+    readonly difficulty: FieldRef<"Problem", 'String'>
   }
     
 
@@ -2153,6 +2179,7 @@ export namespace Prisma {
     problem_id: number | null
     runtime: number | null
     passed_cases: number | null
+    failed_case: string | null
   }
 
   export type SubmissionMaxAggregateOutputType = {
@@ -2161,6 +2188,7 @@ export namespace Prisma {
     problem_id: number | null
     runtime: number | null
     passed_cases: number | null
+    failed_case: string | null
   }
 
   export type SubmissionCountAggregateOutputType = {
@@ -2169,6 +2197,7 @@ export namespace Prisma {
     problem_id: number
     runtime: number
     passed_cases: number
+    failed_case: number
     _all: number
   }
 
@@ -2195,6 +2224,7 @@ export namespace Prisma {
     problem_id?: true
     runtime?: true
     passed_cases?: true
+    failed_case?: true
   }
 
   export type SubmissionMaxAggregateInputType = {
@@ -2203,6 +2233,7 @@ export namespace Prisma {
     problem_id?: true
     runtime?: true
     passed_cases?: true
+    failed_case?: true
   }
 
   export type SubmissionCountAggregateInputType = {
@@ -2211,6 +2242,7 @@ export namespace Prisma {
     problem_id?: true
     runtime?: true
     passed_cases?: true
+    failed_case?: true
     _all?: true
   }
 
@@ -2306,6 +2338,7 @@ export namespace Prisma {
     problem_id: number
     runtime: number
     passed_cases: number
+    failed_case: string | null
     _count: SubmissionCountAggregateOutputType | null
     _avg: SubmissionAvgAggregateOutputType | null
     _sum: SubmissionSumAggregateOutputType | null
@@ -2333,6 +2366,7 @@ export namespace Prisma {
     problem_id?: boolean
     runtime?: boolean
     passed_cases?: boolean
+    failed_case?: boolean
   }, ExtArgs["result"]["submission"]>
 
   export type SubmissionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2341,6 +2375,7 @@ export namespace Prisma {
     problem_id?: boolean
     runtime?: boolean
     passed_cases?: boolean
+    failed_case?: boolean
   }, ExtArgs["result"]["submission"]>
 
   export type SubmissionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2349,6 +2384,7 @@ export namespace Prisma {
     problem_id?: boolean
     runtime?: boolean
     passed_cases?: boolean
+    failed_case?: boolean
   }, ExtArgs["result"]["submission"]>
 
   export type SubmissionSelectScalar = {
@@ -2357,9 +2393,10 @@ export namespace Prisma {
     problem_id?: boolean
     runtime?: boolean
     passed_cases?: boolean
+    failed_case?: boolean
   }
 
-  export type SubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "problem_id" | "runtime" | "passed_cases", ExtArgs["result"]["submission"]>
+  export type SubmissionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "problem_id" | "runtime" | "passed_cases" | "failed_case", ExtArgs["result"]["submission"]>
 
   export type $SubmissionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Submission"
@@ -2370,6 +2407,7 @@ export namespace Prisma {
       problem_id: number
       runtime: number
       passed_cases: number
+      failed_case: string | null
     }, ExtArgs["result"]["submission"]>
     composites: {}
   }
@@ -2798,6 +2836,7 @@ export namespace Prisma {
     readonly problem_id: FieldRef<"Submission", 'Int'>
     readonly runtime: FieldRef<"Submission", 'Float'>
     readonly passed_cases: FieldRef<"Submission", 'Int'>
+    readonly failed_case: FieldRef<"Submission", 'String'>
   }
     
 
@@ -4189,7 +4228,9 @@ export namespace Prisma {
     driver_code_cpp: 'driver_code_cpp',
     driver_code_python: 'driver_code_python',
     driver_code_java: 'driver_code_java',
-    testcases: 'testcases'
+    solution_code_cpp: 'solution_code_cpp',
+    testcases: 'testcases',
+    difficulty: 'difficulty'
   };
 
   export type ProblemScalarFieldEnum = (typeof ProblemScalarFieldEnum)[keyof typeof ProblemScalarFieldEnum]
@@ -4200,7 +4241,8 @@ export namespace Prisma {
     user_id: 'user_id',
     problem_id: 'problem_id',
     runtime: 'runtime',
-    passed_cases: 'passed_cases'
+    passed_cases: 'passed_cases',
+    failed_case: 'failed_case'
   };
 
   export type SubmissionScalarFieldEnum = (typeof SubmissionScalarFieldEnum)[keyof typeof SubmissionScalarFieldEnum]
@@ -4300,7 +4342,9 @@ export namespace Prisma {
     driver_code_cpp?: StringNullableFilter<"Problem"> | string | null
     driver_code_python?: StringNullableFilter<"Problem"> | string | null
     driver_code_java?: StringNullableFilter<"Problem"> | string | null
+    solution_code_cpp?: StringFilter<"Problem"> | string
     testcases?: StringFilter<"Problem"> | string
+    difficulty?: StringFilter<"Problem"> | string
   }
 
   export type ProblemOrderByWithRelationInput = {
@@ -4311,7 +4355,9 @@ export namespace Prisma {
     driver_code_cpp?: SortOrderInput | SortOrder
     driver_code_python?: SortOrderInput | SortOrder
     driver_code_java?: SortOrderInput | SortOrder
+    solution_code_cpp?: SortOrder
     testcases?: SortOrder
+    difficulty?: SortOrder
   }
 
   export type ProblemWhereUniqueInput = Prisma.AtLeast<{
@@ -4325,7 +4371,9 @@ export namespace Prisma {
     driver_code_cpp?: StringNullableFilter<"Problem"> | string | null
     driver_code_python?: StringNullableFilter<"Problem"> | string | null
     driver_code_java?: StringNullableFilter<"Problem"> | string | null
+    solution_code_cpp?: StringFilter<"Problem"> | string
     testcases?: StringFilter<"Problem"> | string
+    difficulty?: StringFilter<"Problem"> | string
   }, "id">
 
   export type ProblemOrderByWithAggregationInput = {
@@ -4336,7 +4384,9 @@ export namespace Prisma {
     driver_code_cpp?: SortOrderInput | SortOrder
     driver_code_python?: SortOrderInput | SortOrder
     driver_code_java?: SortOrderInput | SortOrder
+    solution_code_cpp?: SortOrder
     testcases?: SortOrder
+    difficulty?: SortOrder
     _count?: ProblemCountOrderByAggregateInput
     _avg?: ProblemAvgOrderByAggregateInput
     _max?: ProblemMaxOrderByAggregateInput
@@ -4355,7 +4405,9 @@ export namespace Prisma {
     driver_code_cpp?: StringNullableWithAggregatesFilter<"Problem"> | string | null
     driver_code_python?: StringNullableWithAggregatesFilter<"Problem"> | string | null
     driver_code_java?: StringNullableWithAggregatesFilter<"Problem"> | string | null
+    solution_code_cpp?: StringWithAggregatesFilter<"Problem"> | string
     testcases?: StringWithAggregatesFilter<"Problem"> | string
+    difficulty?: StringWithAggregatesFilter<"Problem"> | string
   }
 
   export type SubmissionWhereInput = {
@@ -4367,6 +4419,7 @@ export namespace Prisma {
     problem_id?: IntFilter<"Submission"> | number
     runtime?: FloatFilter<"Submission"> | number
     passed_cases?: IntFilter<"Submission"> | number
+    failed_case?: StringNullableFilter<"Submission"> | string | null
   }
 
   export type SubmissionOrderByWithRelationInput = {
@@ -4375,6 +4428,7 @@ export namespace Prisma {
     problem_id?: SortOrder
     runtime?: SortOrder
     passed_cases?: SortOrder
+    failed_case?: SortOrderInput | SortOrder
   }
 
   export type SubmissionWhereUniqueInput = Prisma.AtLeast<{
@@ -4386,6 +4440,7 @@ export namespace Prisma {
     problem_id?: IntFilter<"Submission"> | number
     runtime?: FloatFilter<"Submission"> | number
     passed_cases?: IntFilter<"Submission"> | number
+    failed_case?: StringNullableFilter<"Submission"> | string | null
   }, "id">
 
   export type SubmissionOrderByWithAggregationInput = {
@@ -4394,6 +4449,7 @@ export namespace Prisma {
     problem_id?: SortOrder
     runtime?: SortOrder
     passed_cases?: SortOrder
+    failed_case?: SortOrderInput | SortOrder
     _count?: SubmissionCountOrderByAggregateInput
     _avg?: SubmissionAvgOrderByAggregateInput
     _max?: SubmissionMaxOrderByAggregateInput
@@ -4410,6 +4466,7 @@ export namespace Prisma {
     problem_id?: IntWithAggregatesFilter<"Submission"> | number
     runtime?: FloatWithAggregatesFilter<"Submission"> | number
     passed_cases?: IntWithAggregatesFilter<"Submission"> | number
+    failed_case?: StringNullableWithAggregatesFilter<"Submission"> | string | null
   }
 
   export type UserWhereInput = {
@@ -4463,7 +4520,9 @@ export namespace Prisma {
     driver_code_cpp?: string | null
     driver_code_python?: string | null
     driver_code_java?: string | null
+    solution_code_cpp?: string
     testcases: string
+    difficulty?: string
   }
 
   export type ProblemUncheckedCreateInput = {
@@ -4474,7 +4533,9 @@ export namespace Prisma {
     driver_code_cpp?: string | null
     driver_code_python?: string | null
     driver_code_java?: string | null
+    solution_code_cpp?: string
     testcases: string
+    difficulty?: string
   }
 
   export type ProblemUpdateInput = {
@@ -4484,7 +4545,9 @@ export namespace Prisma {
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_java?: NullableStringFieldUpdateOperationsInput | string | null
+    solution_code_cpp?: StringFieldUpdateOperationsInput | string
     testcases?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
   }
 
   export type ProblemUncheckedUpdateInput = {
@@ -4495,7 +4558,9 @@ export namespace Prisma {
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_java?: NullableStringFieldUpdateOperationsInput | string | null
+    solution_code_cpp?: StringFieldUpdateOperationsInput | string
     testcases?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
   }
 
   export type ProblemCreateManyInput = {
@@ -4506,7 +4571,9 @@ export namespace Prisma {
     driver_code_cpp?: string | null
     driver_code_python?: string | null
     driver_code_java?: string | null
+    solution_code_cpp?: string
     testcases: string
+    difficulty?: string
   }
 
   export type ProblemUpdateManyMutationInput = {
@@ -4516,7 +4583,9 @@ export namespace Prisma {
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_java?: NullableStringFieldUpdateOperationsInput | string | null
+    solution_code_cpp?: StringFieldUpdateOperationsInput | string
     testcases?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
   }
 
   export type ProblemUncheckedUpdateManyInput = {
@@ -4527,7 +4596,9 @@ export namespace Prisma {
     driver_code_cpp?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_python?: NullableStringFieldUpdateOperationsInput | string | null
     driver_code_java?: NullableStringFieldUpdateOperationsInput | string | null
+    solution_code_cpp?: StringFieldUpdateOperationsInput | string
     testcases?: StringFieldUpdateOperationsInput | string
+    difficulty?: StringFieldUpdateOperationsInput | string
   }
 
   export type SubmissionCreateInput = {
@@ -4535,6 +4606,7 @@ export namespace Prisma {
     problem_id: number
     runtime: number
     passed_cases: number
+    failed_case?: string | null
   }
 
   export type SubmissionUncheckedCreateInput = {
@@ -4543,6 +4615,7 @@ export namespace Prisma {
     problem_id: number
     runtime: number
     passed_cases: number
+    failed_case?: string | null
   }
 
   export type SubmissionUpdateInput = {
@@ -4550,6 +4623,7 @@ export namespace Prisma {
     problem_id?: IntFieldUpdateOperationsInput | number
     runtime?: FloatFieldUpdateOperationsInput | number
     passed_cases?: IntFieldUpdateOperationsInput | number
+    failed_case?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubmissionUncheckedUpdateInput = {
@@ -4558,6 +4632,7 @@ export namespace Prisma {
     problem_id?: IntFieldUpdateOperationsInput | number
     runtime?: FloatFieldUpdateOperationsInput | number
     passed_cases?: IntFieldUpdateOperationsInput | number
+    failed_case?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubmissionCreateManyInput = {
@@ -4566,6 +4641,7 @@ export namespace Prisma {
     problem_id: number
     runtime: number
     passed_cases: number
+    failed_case?: string | null
   }
 
   export type SubmissionUpdateManyMutationInput = {
@@ -4573,6 +4649,7 @@ export namespace Prisma {
     problem_id?: IntFieldUpdateOperationsInput | number
     runtime?: FloatFieldUpdateOperationsInput | number
     passed_cases?: IntFieldUpdateOperationsInput | number
+    failed_case?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type SubmissionUncheckedUpdateManyInput = {
@@ -4581,6 +4658,7 @@ export namespace Prisma {
     problem_id?: IntFieldUpdateOperationsInput | number
     runtime?: FloatFieldUpdateOperationsInput | number
     passed_cases?: IntFieldUpdateOperationsInput | number
+    failed_case?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type UserCreateInput = {
@@ -4676,7 +4754,9 @@ export namespace Prisma {
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
     driver_code_java?: SortOrder
+    solution_code_cpp?: SortOrder
     testcases?: SortOrder
+    difficulty?: SortOrder
   }
 
   export type ProblemAvgOrderByAggregateInput = {
@@ -4691,7 +4771,9 @@ export namespace Prisma {
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
     driver_code_java?: SortOrder
+    solution_code_cpp?: SortOrder
     testcases?: SortOrder
+    difficulty?: SortOrder
   }
 
   export type ProblemMinOrderByAggregateInput = {
@@ -4702,7 +4784,9 @@ export namespace Prisma {
     driver_code_cpp?: SortOrder
     driver_code_python?: SortOrder
     driver_code_java?: SortOrder
+    solution_code_cpp?: SortOrder
     testcases?: SortOrder
+    difficulty?: SortOrder
   }
 
   export type ProblemSumOrderByAggregateInput = {
@@ -4778,6 +4862,7 @@ export namespace Prisma {
     problem_id?: SortOrder
     runtime?: SortOrder
     passed_cases?: SortOrder
+    failed_case?: SortOrder
   }
 
   export type SubmissionAvgOrderByAggregateInput = {
@@ -4794,6 +4879,7 @@ export namespace Prisma {
     problem_id?: SortOrder
     runtime?: SortOrder
     passed_cases?: SortOrder
+    failed_case?: SortOrder
   }
 
   export type SubmissionMinOrderByAggregateInput = {
@@ -4802,6 +4888,7 @@ export namespace Prisma {
     problem_id?: SortOrder
     runtime?: SortOrder
     passed_cases?: SortOrder
+    failed_case?: SortOrder
   }
 
   export type SubmissionSumOrderByAggregateInput = {

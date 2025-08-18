@@ -22,7 +22,9 @@ model Problem {
   driver_code_cpp     String?
   driver_code_python  String?
   driver_code_java    String?
+  solution_code_cpp   String  @default("class Solution{\n    public:\n    bool isPalindrome(string s){\n        for (int i = 0; i < s.length(); i++){\n            if (s[i] != s[s.length()-1-i])\n                return 0;\n        }\n        return 1;\n    }\n};")
   testcases           String
+  difficulty          String  @default("Easy")
 }
 
 model Submission {
@@ -31,6 +33,7 @@ model Submission {
   problem_id    Int
   runtime       Float
   passed_cases  Int
+  failed_case   String?
 }
 
 model User {

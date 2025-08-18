@@ -3,14 +3,16 @@
 import { Editor } from "@monaco-editor/react";
 import { useState, useEffect } from "react";
 import clsx from "clsx";
+import { TestcaseVerdict } from "@/types/types";
 
 export default function SubmitForm({ problem_id, className }: { problem_id: number, className: string }) {
     const [code, setCode] = useState('');
-    const [output, setOutput] = useState('');
+    const [verdict, setVerdict] = useState('');
     const [passed, setPassed] = useState('');
     const [total, setTotal] = useState('');
     const [error, setError] = useState('');
     const [testcases, setTestcases] = useState('');
+    const [testcasesResult, setTestcasesResult] = useState(new Array<TestcaseVerdict>());
 
     const defaultCodes = {
         cpp:
@@ -27,6 +29,9 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
     }, [])
 
     const handleRun = async () => {
+        if (testcases === ""){
+            return;
+        }
         const res = await fetch('/api/run-tests', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -39,11 +44,8 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
         });
 
         const data = await res.json();
-        console.log(data);
-        setOutput(data.verdict);
-        setError(data.Error);
-        setPassed(data.passed_cases || "");
-        setTotal(data.total_cases || "");
+        // console.log(data);
+        setTestcasesResult(data);
     };
 
     const handleSubmit = async () => {
@@ -59,7 +61,12 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
 
         const data = await res.json();
         console.log(data);
-        setOutput(data.verdict);
+        if (!data.passed_cases || !data.total_cases)
+            setVerdict("");
+        else if (data.passed_cases === data.total_cases)
+            setVerdict("Correct Answer");
+        else
+            setVerdict("Wrong Answer");
         setError(data.Error);
         setPassed(data.passed_cases || "");
         setTotal(data.total_cases || "");
@@ -106,14 +113,15 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
 
                 </div>
             </div>
+
             <h1 className="text-3xl font-bold mb-6 text-gray-800">Output</h1>
             <div className="min-h-32 mt-2 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm font-mono w-full overflow-auto">
                 {
-                    output ?
+                    verdict ?
                         <>
 
-                            <p className={` text-xl ${output === "Wrong Answer" ? "text-red-500" : "text-green-500"}`}>
-                                {output}
+                            <p className={` text-xl ${verdict === "Wrong Answer" ? "text-red-500" : "text-green-500"}`}>
+                                {verdict}
                             </p>
 
 
@@ -131,6 +139,23 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
                                 {error}
                             </p>
                         </div>
+                }
+            </div>
+
+            <h1 className="text-3xl font-bold mb-6 text-gray-800">Output</h1>
+            <div className="min-h-32 mt-2 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm font-mono w-full overflow-auto">
+                {
+                    testcasesResult?.map((item: TestcaseVerdict) => (
+                        <div>
+                            {
+                                item.passed?
+                                <p className="text-green-500"> Passed </p>
+                                :
+                                <p className="text-red-500"> Failed </p>
+                            }
+                            <p> { item.runtime } </p>
+                        </div>
+                    ))
                 }
             </div>
         </div>

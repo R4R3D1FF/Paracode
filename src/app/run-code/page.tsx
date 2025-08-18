@@ -15,12 +15,12 @@ int main(){
 }`
   }
 
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(defaultCodes["cpp"]);
   const [output, setOutput] = useState('');
 
-  useEffect(() =>{
-    setCode(defaultCodes["cpp"]);
-  });
+  // useEffect(() =>{
+  //   setCode(defaultCodes["cpp"]);
+  // }, []);
 
   const handleRun = async () => {
     const res = await fetch('/api/coderun', {
@@ -31,7 +31,7 @@ int main(){
 
     const data = await res.json();
     console.log(data);
-    setOutput(data.message || data.error);
+    setOutput(data.message?.output || data.error);
   };
 
   
@@ -62,9 +62,9 @@ int main(){
       </div>
       <div className="w-1/2 h-full flex flex-col pl-6">
         <h1 className="text-3xl font-bold mb-6 text-gray-800">Output</h1>
-        <pre className="min-h-1/3 mt-2 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm whitespace-pre-wrap font-mono">
+        <div className="min-h-1/3 mt-2 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm whitespace-pre overflow-auto font-mono">
           {output}
-        </pre>
+        </div>
       </div>
     </div>
   );
