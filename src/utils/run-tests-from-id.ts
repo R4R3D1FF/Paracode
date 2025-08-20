@@ -124,6 +124,8 @@ using namespace std;
                             const thisVerdict: TestcaseVerdict = {
                                 testcase: parsedTestcases[i],
                                 passed: (output === target),
+                                output,
+                                target,
                                 timeout: false,
                                 runtime: duration
                             };

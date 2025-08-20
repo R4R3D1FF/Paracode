@@ -29,7 +29,7 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
     }, [])
 
     const handleRun = async () => {
-        if (testcases === ""){
+        if (testcases === "") {
             return;
         }
         const res = await fetch('/api/run-tests', {
@@ -130,6 +130,11 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
                             </p>
                         </>
                         :
+                        <></>
+                }
+
+                {
+                    error ?
                         <div className="w-full overflow-auto">
                             <p className="text-xl text-red-500">
                                 Runtime Error
@@ -139,21 +144,33 @@ export default function SubmitForm({ problem_id, className }: { problem_id: numb
                                 {error}
                             </p>
                         </div>
+                        :
+                        <></>
                 }
+
             </div>
 
-            <h1 className="text-3xl font-bold mb-6 text-gray-800">Output</h1>
+            <h1 className="text-3xl font-bold my-6 text-gray-800">Test Results</h1>
             <div className="min-h-32 mt-2 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm font-mono w-full overflow-auto">
                 {
                     testcasesResult?.map((item: TestcaseVerdict) => (
-                        <div>
+                        <div className="border-b py-2">
                             {
-                                item.passed?
-                                <p className="text-green-500"> Passed </p>
-                                :
-                                <p className="text-red-500"> Failed </p>
+                                item.passed ?
+                                    <p className="text-green-500"> Passed </p>
+                                    :
+                                    <p className="text-red-500"> Failed </p>
                             }
-                            <p> { item.runtime } </p>
+                            {
+                                item.output ?
+                                    <div>
+                                        <p> Output: {item.output} </p>
+                                        <p> Expected: {item.target} </p>
+                                    </div>
+                                    :
+                                    <></>
+                            }
+                            <p> {item.runtime} </p>
                         </div>
                     ))
                 }
