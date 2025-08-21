@@ -16,3 +16,14 @@ export async function GET(
 
     return NextResponse.json(problems);
 }
+
+export async function POST(req: Request) {
+  try {
+    const data = await req.json();
+    const problem = await prisma.problem.create({ data });
+    return NextResponse.json(problem, { status: 201 });
+  } catch (err: any) {
+    console.log(err.message);
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}

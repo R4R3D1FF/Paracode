@@ -1,7 +1,5 @@
 import { PrismaClient } from '@/generated/prisma/client'; // use standard import
 import { NextResponse } from 'next/server';
-import { submitFromId } from '@/utils/submit-from-id';
-import percentileCalc from '@/utils/percentile';
 import { runTestsFromId } from '@/utils/run-tests-from-id';
 
 const prisma = new PrismaClient();
